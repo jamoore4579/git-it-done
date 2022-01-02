@@ -1,6 +1,13 @@
 //New file
-var getUserRepos = function() {
-    fetch("https://api.github.com/users/octocat/repos");
+var getUserRepos = function(user) {
+    
+    var apiurl = "https://api.github.com/users/" + user + "/repos";
+    
+    fetch(apiurl).then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
+        });    
+    });
 };
 
-getUserRepos();
+getUserRepos("jamoore4579");
